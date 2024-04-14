@@ -3,8 +3,10 @@ from data.data import Data
 from data.locators import Locators
 from pages.start_page import StartPage
 import allure
+import pytest
 
 
+@pytest.mark.startpage
 @allure.testcase(Data.base_url, 'Test start page')
 def test_start_page(page: Page):
     page = StartPage(page)

@@ -1,3 +1,4 @@
+import pytest
 from playwright.sync_api import Page, expect
 import data.test_data
 from data.data import Data
@@ -6,6 +7,7 @@ from pages.account_create_page import AccountCreatePage
 import allure
 
 
+@pytest.mark.account
 @allure.testcase(Data.create_account_url, 'Test create account page')
 def test_create_account_page(page: Page):
     page = AccountCreatePage(page)
