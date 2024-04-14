@@ -6,6 +6,7 @@ import allure
 import pytest
 
 
+@pytest.mark.regression
 @pytest.mark.sales
 @allure.testcase(Data.sale_url, 'Test sale page')
 def test_sales_page(page: Page):

@@ -6,6 +6,7 @@ import allure
 import pytest
 
 
+@pytest.mark.regression
 @pytest.mark.ecofriendly
 @allure.testcase(Data.eco_friendly_url, 'Test eco-friendly page')
 def test_eco_friendly_page(page: Page):
