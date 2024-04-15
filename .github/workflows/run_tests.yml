@@ -15,6 +15,7 @@ on:
           - sales
           - startpage
           - regression
+          - smoke
           - all
 
 permissions:
@@ -55,8 +56,12 @@ jobs:
         run: cd tests && pytest -m regression -v -s --alluredir=allure-results
         if: "github.event.inputs.deployment_target == 'regression'"
         continue-on-error: true
+      - name: run regression tests
+        run: cd tests && pytest -m smoke -v -s --alluredir=allure-results
+        if: "github.event.inputs.deployment_target == 'smoke'"
+        continue-on-error: true
       - name: run all tests
-        run: cd ui_tests_eokulik && pytest -v -s --alluredir=allure-results
+        run: cd tests && pytest -v -s --alluredir=allure-results
         if: "github.event.inputs.deployment_target == 'all'"
         continue-on-error: true
       - name: Install Java
