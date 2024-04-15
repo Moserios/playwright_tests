@@ -1,6 +1,6 @@
 import os
-print("Current working directory:", os.getcwd())
 
+print("Current working directory:", os.getcwd())
 
 from playwright.sync_api import Page
 from data import Data
@@ -9,6 +9,7 @@ import allure
 import pytest
 
 
+@pytest.mark.smoke
 @pytest.mark.startpage
 @allure.testcase(Data.base_url, 'Test start page')
 def test_start_page(page: Page):

@@ -7,6 +7,7 @@ from account_create_page import AccountCreatePage
 import allure
 
 
+@pytest.mark.smoke
 @pytest.mark.regression
 @pytest.mark.account
 @allure.testcase(Data.create_account_url, 'Test create account page')
