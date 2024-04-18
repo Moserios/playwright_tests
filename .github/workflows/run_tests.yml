@@ -40,25 +40,25 @@ jobs:
         run: playwright install
       - name: run account tests
         if: "github.event.inputs.deployment_target == 'account'"
-        run: cd tests && pytest -m smoke -v -s --alluredir=allure-results
+        run: cd tests && pytest -m account -v -s --alluredir=allure-results
         continue-on-error: true
       - name: run ecofriendly tests
         if: "github.event.inputs.deployment_target == 'ecofriendly'"
-        run: cd tests && pytest -m smoke -v -s --alluredir=allure-results
+        run: cd tests && pytest -m ecofriendly -v -s --alluredir=allure-results
         continue-on-error: true
       - name: run sales tests
         if: "github.event.inputs.deployment_target == 'sales'"
-        run: cd tests && pytest -m smoke -v -s --alluredir=allure-results
+        run: cd tests && pytest -m sales -v -s --alluredir=allure-results
         continue-on-error: true
       - name: run startpage tests
         if: "github.event.inputs.deployment_target == 'startpage'"
-        run: cd tests && pytest -m smoke -v -s --alluredir=allure-results
+        run: cd tests && pytest -m startpage -v -s --alluredir=allure-results
         continue-on-error: true
       - name: run regression tests
         run: cd tests && pytest -m regression -v -s --alluredir=allure-results
         if: "github.event.inputs.deployment_target == 'regression'"
         continue-on-error: true
-      - name: run regression tests
+      - name: run smoke tests
         run: cd tests && pytest -m smoke -v -s --alluredir=allure-results
         if: "github.event.inputs.deployment_target == 'smoke'"
         continue-on-error: true
